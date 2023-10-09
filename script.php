@@ -5,24 +5,27 @@
 $mytext = $_POST['mytext'];
 $badword = $_POST['badword'];
 
-$badwordlen = strlen($badword);
+$paragraph = $mytext . ' ' . $badword;
 
-$hidden = str_repeat('***', $badwordlen);;
+$hidden = str_replace($badword, '***', $paragraph);
 
-$textlength = strlen($mytext) + strlen($badword);
-$textcensorlen = strlen($mytext) + strlen($hidden);
+$textlength = strlen($paragraph) - 1;
+$censorlength = strlen($hidden) - 1;
+
 ?>
 
 <body>
     <h2>Paragrafo:</h2>
-    <p><?php echo "$mytext $badword"; ?></p>
+    <p><?php echo $paragraph; ?></p>
 
     <h2>Numero di lettere nel paragrafo: <?php echo $textlength; ?> </h2>
     <br><br><br>
 
+    <h2>Paragrafo censurato:</h2>
+    <p><?php echo $hidden; ?></p>
+
+    <h2>Numero di lettere nel paragrafo: <?php echo $censorlength; ?> </h2>
 
 
-    <p><?php echo "$mytext $hidden"; ?></p>
 
-    <h2>Numero di lettere nel paragrafo: <?php echo $textcensorlen; ?> </h2>
 </body>
