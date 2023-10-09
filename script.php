@@ -12,6 +12,7 @@ $hidden = str_replace($badword, '***', $paragraph);
 $textlength = strlen($paragraph) - 1;
 $censorlength = strlen($hidden) - 1;
 
+
 ?>
 
 <body>
